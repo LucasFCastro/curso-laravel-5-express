@@ -19,3 +19,17 @@ $factory->define(MyBlog\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(MyBlog\Post::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence(6),
+        'content' => $faker->paragraph,
+        'autor' => $faker->name,
+    ];
+});
+
+$factory->define(MyBlog\Tag::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word
+    ];
+});

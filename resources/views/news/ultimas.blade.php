@@ -1,4 +1,5 @@
 @extends('template')
+
 @section('title') Últimos artigos @endsection
 
 @section('content')
@@ -23,14 +24,26 @@
             <div class="post-preview">
                 <a href="#">
                     <h2 class="post-title">
-                        {{ $artigo }}.
+                        {{ $artigo->title }}.
                     </h2>
                     <h3 class="post-subtitle">
-                        We predict too much for the next year and yet far too little for the next ten.
+                        {{ $artigo->content }}
                     </h3>
                 </a>
-                <p class="post-meta">Criado por <a href="#">Lucas Castro</a> 20 de novembro de 2015</p>
+                <p class="post-meta">Criado por <a href="#">{{ $artigo->autor }}</a> {{ $artigo->created_at }}</p>
             </div>
+                <p><b>Tags</b></p>
+                <ul>
+                    @foreach($artigo->tags as $tag)
+                        <li>{{ $tag->name }}</li>
+                    @endforeach
+                </ul>
+                <hr>
+                <h4>Commentários</h4>
+                @foreach($artigo->comments as $comment)
+                    <p>{{ $comment->name }} - {{ $comment->email }}</p>
+                    <p>{{ $comment->comment }}</p>
+                @endforeach
             <hr>
             @endforeach
             <!-- Pager -->

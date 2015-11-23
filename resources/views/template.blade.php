@@ -28,7 +28,7 @@
 @include('menubar')
 @include('pageheader')
 <div class="container">
-    @yield('content');
+    @yield('content')
 </div>
 @include('pagefooter')
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

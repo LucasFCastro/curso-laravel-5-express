@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('template');
-});
 
-Route::get('ola/{nome}', 'TestController@index');
-Route::get('notas', 'TestController@notas');
-Route::get('ultimas', 'ArtigosController@ultimas');
+Route::get('/', 'ArtigosController@ultimas');
+
+Route::get('admin', ['as'=>'admin.index', 'uses'=>'ArtigosAdminController@index']);
+Route::get('admin/create', ['as'=>'admin.create', 'uses'=>'ArtigosAdminController@create']);
+Route::post('admin/store', ['as'=>'admin.store', 'uses'=>'ArtigosAdminController@store']);
